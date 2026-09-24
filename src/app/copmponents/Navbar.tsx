@@ -14,6 +14,25 @@ const Navbar = () => {
       ? "rounded-full bg-[#1A2312] px-4 py-2 text-xs font-semibold text-[#C2F800]"
       : "rounded-full px-4 py-2 text-xs text-gray-400 transition hover:bg-[#151619] hover:text-white";
 
+      const navMenu = <>
+      <li>
+              <Link
+                href="/workouts"
+                className={getNavClass("/workouts")}
+              >
+                Workouts
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/my-plan"
+                className={getNavClass("/my-plan")}
+              >
+                My Plan
+              </Link>
+            </li>
+      </>
   return (
     <nav className="border-b border-[#1F2023] bg-[#0B0C0E] shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -39,23 +58,7 @@ const Navbar = () => {
         {/* ================= DESKTOP MENU ================= */}
         <div className="hidden lg:flex">
           <ul className="flex items-center gap-1">
-            <li>
-              <Link
-                href="/workouts"
-                className={getNavClass("/workouts")}
-              >
-                Workouts
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/my-plan"
-                className={getNavClass("/my-plan")}
-              >
-                My Plan
-              </Link>
-            </li>
+            {navMenu}
           </ul>
         </div>
 
@@ -117,23 +120,7 @@ const Navbar = () => {
           >
 
             {/* Navigation */}
-            <li>
-              <Link
-                href="/workouts"
-                className={getNavClass("/workouts")}
-              >
-                Workouts
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/my-plan"
-                className={getNavClass("/my-plan")}
-              >
-                My Plan
-              </Link>
-            </li>
+            {navMenu}
 
             <div className="my-2 border-t border-[#242528]" />
 
