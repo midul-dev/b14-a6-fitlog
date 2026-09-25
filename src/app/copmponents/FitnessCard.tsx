@@ -1,9 +1,14 @@
 import { IData } from "@/types/dataType";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FitnessCard = ({ data } : {data:IData}) => {
   return (
+    <Link
+      href={`/${data.id}`}
+      className="group block"
+    >
     <div className=" group
         overflow-hidden
         rounded-2xl
@@ -120,6 +125,7 @@ const FitnessCard = ({ data } : {data:IData}) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 

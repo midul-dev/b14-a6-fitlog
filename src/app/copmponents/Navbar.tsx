@@ -17,8 +17,8 @@ const Navbar = () => {
       const navMenu = <>
       <li>
               <Link
-                href="/workouts"
-                className={getNavClass("/workouts")}
+                href="/"
+                className={getNavClass("/")}
               >
                 Workouts
               </Link>
