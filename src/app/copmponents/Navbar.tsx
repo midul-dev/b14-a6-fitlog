@@ -124,7 +124,7 @@ const Navbar = () => {
                 <span>Plan</span>
 
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#C2F800] text-[9px] font-bold text-black">
-                  0
+                  {todaysPlan.length}
                 </span>
               </Link>
             </li>
@@ -138,7 +138,7 @@ const Navbar = () => {
                 <span>Saved</span>
 
                 <span className="flex h-5 w-5 items-center justify-center rounded-full border border-[#303136] text-[9px] text-gray-400">
-                  0
+                  {savedPlan.length}
                 </span>
               </Link>
             </li>
