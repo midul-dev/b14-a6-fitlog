@@ -3,6 +3,7 @@
 import { FitDataContext } from "@/context/FitDataContext";
 import { IData } from "@/types/dataType";
 import React, { Dispatch, SetStateAction, useContext } from "react";
+import { Bounce, toast } from "react-toastify";
 
 const SavedPlanButton = ({ workout }: { workout: IData }) => {
   const { savedPlan, setSavedPlan } = useContext(FitDataContext) as {
@@ -19,6 +20,17 @@ const SavedPlanButton = ({ workout }: { workout: IData }) => {
     if (isSaved) return;
 
     setSavedPlan([...savedPlan, workout]);
+    toast.success(`${workout.name} saved successfully`, {
+position: "top-right",
+autoClose: 3000,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
   };
 
   return (

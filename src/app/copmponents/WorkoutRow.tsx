@@ -3,6 +3,7 @@ import { IData } from "@/types/dataType";
 import Image from "next/image";
 import Link from "next/link";
 import React, { Dispatch, SetStateAction, useContext } from "react";
+import { Bounce, toast } from "react-toastify";
 
 const WorkoutRow = ({
   workout,
@@ -20,15 +21,65 @@ const WorkoutRow = ({
     setTodaysPlan: Dispatch<SetStateAction<IData[]>>;
   };
   const handleRemovePlan = () => {
-      setTodaysPlan(todaysPlan.filter((item) => item.id !== workout.id));
-    };
-    const handleRemoveSaved = () => {
-      setSavedPlan(savedPlan.filter((item) => item.id !== workout.id));
-    };
-  const handleAddToPlan = () => {
-    setTodaysPlan([...todaysPlan, workout]);
+    setTodaysPlan(todaysPlan.filter((item) => item.id !== workout.id));
+    toast.error(`${workout.name} removed from Today's Plan.`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+  const handleRemoveSaved = () => {
     setSavedPlan(savedPlan.filter((item) => item.id !== workout.id));
-    
+    toast.error(`${workout.name} removed from saved.`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+  const handleAddToPlan = () => {
+    const alreadyAdded = todaysPlan.some((item) => item.id === workout.id);
+
+    if (alreadyAdded) {
+      toast.warn("Already added to today's plan!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
+
+    setTodaysPlan([...todaysPlan, workout]);
+    toast.success(`${workout.name} added to Today's Plan successfully`, {
+position: "top-right",
+autoClose: 3000,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
+
+    setSavedPlan(savedPlan.filter((item) => item.id !== workout.id));
   };
   return (
     <div className="flex items-center gap-3 rounded-xl border border-[#272B31] bg-[#15171C] p-2 transition hover:border-[#343941] sm:gap-4 sm:p-2.5">

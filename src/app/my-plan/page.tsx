@@ -1,26 +1,23 @@
 "use client";
 
-import { Dispatch, SetStateAction, useContext, useState } from "react";
-import Image from "next/image";
+import { useContext, useState } from "react";
+
 import Link from "next/link";
 import { FitDataContext } from "@/context/FitDataContext";
 import { IData } from "@/types/dataType";
 import WorkoutRow from "../copmponents/WorkoutRow";
 
-
-
 const MyPlanPage = () => {
-  const {savedPlan, todaysPlan } =useContext(FitDataContext) as {
-    savedPlan:IData[],
-    todaysPlan:IData[]
-  }
-  const [activeTab, setActiveTab] = useState<"todaysPlan" | "savedPlan">("todaysPlan");
-
-  
+  const { savedPlan, todaysPlan } = useContext(FitDataContext) as {
+    savedPlan: IData[];
+    todaysPlan: IData[];
+  };
+  const [activeTab, setActiveTab] = useState<"todaysPlan" | "savedPlan">(
+    "todaysPlan",
+  );
 
   // কোন tab-এর data দেখাবো
-  const currentWorkouts =
-    activeTab === "todaysPlan" ? todaysPlan: savedPlan ;
+  const currentWorkouts = activeTab === "todaysPlan" ? todaysPlan : savedPlan;
 
   // Dynamic summary
   const totalExercises = currentWorkouts.length;
@@ -38,7 +35,6 @@ const MyPlanPage = () => {
   return (
     <main className="min-h-screen bg-[#0B0C0E] px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
-
         {/* ================= HEADER ================= */}
         <section>
           <h1 className="text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
@@ -54,7 +50,6 @@ const MyPlanPage = () => {
 
         {/* ================= SUMMARY ================= */}
         <section className="mt-5 grid grid-cols-3 overflow-hidden rounded-xl border border-[#272B31] bg-[#15171C]">
-
           {/* Exercises */}
           <div className="relative px-3 py-4 sm:px-5 sm:py-5">
             <div className="absolute right-0 top-1/2 h-8 w-px -translate-y-1/2 bg-[#272B31]" />
@@ -76,9 +71,7 @@ const MyPlanPage = () => {
               Minutes
             </p>
 
-            <p className="mt-1 text-xl font-black text-white">
-              {totalMinutes}
-            </p>
+            <p className="mt-1 text-xl font-black text-white">{totalMinutes}</p>
           </div>
 
           {/* Calories */}
@@ -91,15 +84,12 @@ const MyPlanPage = () => {
               {totalCalories}
             </p>
           </div>
-
         </section>
 
         {/* ================= FILTER BAR ================= */}
         <section className="mt-4 flex items-center justify-between">
-
           {/* Tabs */}
           <div className="flex rounded-md border border-[#272B31] bg-[#15171C] p-0.5">
-
             {/* Today's Plan */}
             <button
               onClick={() => setActiveTab("todaysPlan")}
@@ -123,14 +113,11 @@ const MyPlanPage = () => {
             >
               Saved
             </button>
-
           </div>
 
           {/* Sort */}
           <div className="flex items-center gap-2">
-            <span className="text-[7px] text-[#646A73]">
-              Sort By
-            </span>
+            <span className="text-[7px] text-[#646A73]">Sort By</span>
 
             <select className="rounded-md border border-[#272B31] bg-[#15171C] px-2 py-1.5 text-[7px] text-gray-300 outline-none">
               <option>Duration ↓</option>
@@ -139,12 +126,10 @@ const MyPlanPage = () => {
               <option>Rating ↓</option>
             </select>
           </div>
-
         </section>
 
         {/* ================= WORKOUT LIST ================= */}
         <section className="mt-3 space-y-2">
-
           {currentWorkouts.length > 0 ? (
             currentWorkouts.map((workout) => (
               <WorkoutRow
@@ -159,22 +144,15 @@ const MyPlanPage = () => {
               <p className="text-[8px] text-[#646A73] pb-3">
                 Browse the library and add a lift to get today moving..
               </p>
-              <button className="px-5 rounded-2xl py-1.5 bg-[#C2F10D] text-[10px] text-black"><Link href={'/'}>
-              Go to workouts</Link></button>
+              <button className="px-5 rounded-2xl py-1.5 bg-[#C2F10D] text-[10px] text-black">
+                <Link href={"/"}>Go to workouts</Link>
+              </button>
             </div>
           )}
-
         </section>
-
       </div>
     </main>
   );
 };
 
 export default MyPlanPage;
-
-
-/* ================================================= */
-/* WORKOUT ROW */
-/* ================================================= */
-

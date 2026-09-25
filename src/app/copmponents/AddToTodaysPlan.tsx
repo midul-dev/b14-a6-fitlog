@@ -3,6 +3,7 @@
 import { FitDataContext } from "@/context/FitDataContext";
 import { IData } from "@/types/dataType";
 import React, { Dispatch, SetStateAction, useContext } from "react";
+import { Bounce, toast } from "react-toastify";
 
 const AddToTodaysPlan = ({ workout }: { workout: IData }) => {
   const { todaysPlan, setTodaysPlan } = useContext(FitDataContext) as {
@@ -19,6 +20,17 @@ const AddToTodaysPlan = ({ workout }: { workout: IData }) => {
     if (isAdded) return;
 
     setTodaysPlan([...todaysPlan, workout]);
+    toast.success(`${workout.name} added to Today's Plan.`, {
+position: "top-right",
+autoClose: 3000,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
   };
 
   return (
