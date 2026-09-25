@@ -45,7 +45,7 @@ const WorkoutDetails = async ({
       <div className="mx-auto max-w-6xl">
         {/* ================= BACK ================= */}
         <Link
-          href="/workouts"
+          href="/"
           className="mb-5 inline-flex items-center gap-2 text-[10px] font-medium text-[#646A73] transition hover:text-white"
         >
           <span className="text-sm">←</span>
