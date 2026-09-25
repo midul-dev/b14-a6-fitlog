@@ -9,7 +9,7 @@ const FitnessCard = ({ data } : {data:IData}) => {
       href={`/${data.id}`}
       className="group block"
     >
-    <div className=" group
+    <div id="cards" className=" group
         overflow-hidden
         rounded-2xl
         border

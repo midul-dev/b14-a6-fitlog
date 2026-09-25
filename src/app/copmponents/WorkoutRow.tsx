@@ -20,6 +20,22 @@ const WorkoutRow = ({
     todaysPlan: IData[];
     setTodaysPlan: Dispatch<SetStateAction<IData[]>>;
   };
+  const handleMarkAsDone = () => {
+  setTodaysPlan(
+    todaysPlan.filter((item) => item.id !== workout.id)
+  );
+
+  toast.success(`${workout.name} completed!`, {
+    position: "top-right",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "light",
+    transition: Bounce,
+  });
+};
   const handleRemovePlan = () => {
     setTodaysPlan(todaysPlan.filter((item) => item.id !== workout.id));
     toast.error(`${workout.name} removed from Today's Plan.`, {
@@ -131,11 +147,14 @@ transition: Bounce,
 
         {/* Today's Plan → Mark as Done */}
         {activeTab === "todaysPlan" && (
-          <button className="rounded-full bg-[#C2F800] px-2.5 py-1.5 text-[6px] font-bold text-black transition hover:bg-[#b1e600] sm:rounded-md">
-            <span className="sm:hidden">✓</span>
+          <button
+  onClick={handleMarkAsDone}
+  className="cursor-pointer rounded-full bg-[#C2F800] px-2.5 py-1.5 text-[6px] font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#405006] hover:text-white sm:rounded-md"
+>
+  <span className="sm:hidden">✓</span>
 
-            <span className="hidden sm:inline">✓ Mark as Done</span>
-          </button>
+  <span className="hidden sm:inline">✓ Mark as Done</span>
+</button>
         )}
 
         {/* Saved → Add to Plan */}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeroImage from "@/assets/banner.png";
 import React from "react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -50,14 +51,14 @@ const Hero = () => {
             className="
               max-w-[650px]
               text-3xl
-              font-black
+              font-bold
               uppercase
               leading-[0.95]
               tracking-tight
               text-white
               sm:text-4xl
               md:text-5xl
-              lg:text-6xl
+              lg:text-5xl
           "
           >
             TRAIN WITH INTENT. LOG EVERY SET.
@@ -105,7 +106,7 @@ const Hero = () => {
               sm:text-[10px]
             "
           >
-            Browse Workouts
+            <Link href="#cards">Browse Workouts</Link>
           </button>
         </div>
 

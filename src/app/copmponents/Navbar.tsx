@@ -61,7 +61,7 @@ const Navbar = () => {
         {/* ================= RIGHT DESKTOP ================= */}
         <div className="hidden items-center gap-5 lg:flex">
           <Link
-            href="/plan"
+            href="/my-plan"
             className="flex items-center gap-2 text-xs text-gray-300 transition hover:text-white"
           >
             Plan
@@ -71,7 +71,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/saved"
+            href="/my-plan"
             className="flex items-center gap-2 text-xs text-gray-500 transition hover:text-white"
           >
             Saved
