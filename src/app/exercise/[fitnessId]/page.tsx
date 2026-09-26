@@ -30,7 +30,7 @@ const WorkoutDetails = async ({
           href="/"
           className="mb-5 inline-flex items-center gap-2 text-[10px] font-medium text-[#646A73] transition hover:text-white"
         >
-          <span className="text-sm">←</span>
+          <span className="text-lg">←</span>
           Back to Library
         </Link>
 
@@ -50,14 +50,14 @@ const WorkoutDetails = async ({
           </div>
 
           {/* ================= RIGHT CONTENT ================= */}
-          <div className="flex flex-col px-4 pb-5 pt-1 sm:px-5 sm:pb-6 lg:px-5 lg:py-1">
+          <div className="flex flex-col px-4 pb-5 pt-1 sm:px-5 sm:pb-6 lg:px-5 lg:py-10">
             {/* Title */}
             <div>
               <h1 className="text-2xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-3xl">
                 {workout.name}
               </h1>
 
-              <p className="mt-2 max-w-xl text-[9px] leading-4 text-[#7D838D]">
+              <p className="mt-2 max-w-xl text-[15px] leading-4 text-[#7D838D]">
                 {workout.description}
               </p>
             </div>
@@ -122,7 +122,7 @@ const WorkoutDetails = async ({
 
             {/* ================= INSTRUCTIONS ================= */}
             <div className="mt-4">
-              <h2 className="text-[10px] font-black uppercase tracking-wide text-white">
+              <h2 className="text-[15px] font-black uppercase tracking-wide text-white">
                 Instructions
               </h2>
 
@@ -130,7 +130,7 @@ const WorkoutDetails = async ({
                 {workout.instructions.map((instruction:string, index:number) => (
                   <li
                     key={index}
-                    className="flex gap-2 text-[8px] leading-4 text-[#8B919A]"
+                    className="flex gap-2 text-[12px] leading-4 text-[#8B919A]"
                   >
                     <span className="shrink-0 text-[#8B919A]">
                       {index + 1}.

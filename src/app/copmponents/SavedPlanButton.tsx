@@ -42,7 +42,7 @@ transition: Bounce,
         border
         px-3
         py-2
-        text-[8px]
+        text-[12px]
         font-medium
         transition
         ${
