@@ -96,7 +96,7 @@ const WorkoutRow = ({
     setSavedPlan(savedPlan.filter((item) => item.id !== workout.id));
   };
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-[#272B31] bg-[#15171C] p-2 transition hover:border-[#343941] sm:gap-4 sm:p-2.5">
+    <div className="flex items-center gap-3 rounded-xl border border-[#272B31] bg-[#15171C] p-2 transition hover:border-[#343941] sm:gap-4 sm:p-2">
       {/* Image */}
       <div className="relative h-12 w-20 shrink-0 overflow-hidden rounded-md sm:h-14 sm:w-24">
         <Image
@@ -109,16 +109,16 @@ const WorkoutRow = ({
 
       {/* Workout Info */}
       <div className="min-w-0 flex-1">
-        <h3 className="truncate text-[9px] font-black uppercase text-white sm:text-[10px]">
+        <h3 className="truncate text-[9px] font-black uppercase text-white sm:text-[15px]">
           {workout.name}
         </h3>
 
-        <p className="mt-0.5 text-[7px] text-[#7D838D]">
-          {workout.caloriesBurned}
+        <p className="mt-0.5 text-[12px] font-bold text-[#7D838D]">
+          {workout.equipment}
         </p>
 
         {/* Stats */}
-        <div className="mt-1 flex items-center gap-2 text-[6px] text-[#7D838D] sm:text-[7px]">
+        <div className="mt-1 flex items-center gap-2 text-[6px] text-[#7D838D] sm:text-[12px]">
           <span>
             <span className="text-[#C2F800]">◷</span> {workout.duration} min
           </span>
@@ -138,7 +138,7 @@ const WorkoutRow = ({
       <div className="flex shrink-0 items-center gap-1.5">
         <Link
           href={`/${workout.id}`}
-          className="hidden rounded-md border border-[#30343A] px-2.5 py-1.5 text-[6px] font-medium text-gray-300 transition hover:border-[#454A52] hover:text-white sm:block"
+          className="hidden rounded-md border border-[#30343A] px-2.5 py-1.5 text-[10px] font-medium text-gray-300 transition hover:border-[#454A52] hover:text-white sm:block"
         >
           View Details
         </Link>
@@ -147,7 +147,7 @@ const WorkoutRow = ({
         {activeTab === "todaysPlan" && (
           <button
             onClick={handleMarkAsDone}
-            className="cursor-pointer rounded-full bg-[#C2F800] px-2.5 py-1.5 text-[6px] font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#405006] hover:text-white sm:rounded-md"
+            className="cursor-pointer rounded-full bg-[#C2F800] px-2.5 py-1.5 text-[10px] font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#405006] hover:text-white sm:rounded-md"
           >
             <span className="sm:hidden">✓</span>
 
@@ -159,7 +159,7 @@ const WorkoutRow = ({
         {activeTab === "savedPlan" && (
           <button
             onClick={handleAddToPlan}
-            className="rounded-md bg-[#C2F800] px-2.5 py-1.5 text-[6px] font-bold text-black transition hover:bg-[#b1e600]"
+            className="rounded-md bg-[#C2F800] px-2.5 py-1.5 text-[10px] font-bold text-black transition hover:bg-[#b1e600]"
           >
             + Add to Plan
           </button>
@@ -169,7 +169,7 @@ const WorkoutRow = ({
           onClick={
             activeTab === "todaysPlan" ? handleRemovePlan : handleRemoveSaved
           }
-          className="px-1 text-[9px] text-[#646A73] transition hover:text-white"
+          className="px-1 text-[15px] text-[#646A73] transition hover:text-white"
         >
           ×
         </button>
