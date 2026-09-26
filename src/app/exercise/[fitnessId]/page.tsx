@@ -13,7 +13,7 @@ const WorkoutDetails = async ({
   const { fitnessId } = await params;
 
   const response = await fetch(
-    `https://api.abcz.workers.dev/api/fitlog/${fitnessId}`,
+    `https://api.api-store.workers.dev/api/fitlog/${fitnessId}`,
   );
 
   if (!response.ok) {
@@ -57,7 +57,7 @@ const WorkoutDetails = async ({
                 {workout.name}
               </h1>
 
-              <p className="mt-2 max-w-xl text-[15px] leading-4 text-[#7D838D]">
+              <p className="mt-2 max-w-xl text-[10px] leading-4 text-[#7D838D] sm:text-[15px]">
                 {workout.description}
               </p>
             </div>

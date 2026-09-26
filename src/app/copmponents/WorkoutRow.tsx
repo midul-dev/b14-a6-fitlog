@@ -12,16 +12,19 @@ const WorkoutRow = ({
   workout: IData;
   activeTab: "todaysPlan" | "savedPlan";
 }) => {
-  const { todaysPlan, setTodaysPlan, savedPlan, setSavedPlan } = useContext(
+  const { todaysPlan, setTodaysPlan, savedPlan, setSavedPlan, isDone, setIsDone } = useContext(
     FitDataContext,
   ) as {
     savedPlan: IData[];
     setSavedPlan: Dispatch<SetStateAction<IData[]>>;
     todaysPlan: IData[];
     setTodaysPlan: Dispatch<SetStateAction<IData[]>>;
+    isDone: boolean
+    setIsDone: Dispatch<SetStateAction<boolean>>;
   };
+  
   const handleMarkAsDone = () => {
-    setTodaysPlan(todaysPlan.filter((item) => item.id !== workout.id));
+    setIsDone(true);
 
     toast.success(`${workout.name} completed!`, {
       position: "top-right",
@@ -147,11 +150,18 @@ const WorkoutRow = ({
         {activeTab === "todaysPlan" && (
           <button
             onClick={handleMarkAsDone}
-            className="cursor-pointer rounded-full bg-[#C2F800] px-2.5 py-1.5 text-[10px] font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#405006] hover:text-white sm:rounded-md"
+            disabled={isDone}
+            className={`rounded-md px-3 py-1.5 text-[8px] font-bold uppercase transition ${
+              isDone
+                ? "cursor-not-allowed bg-[#252A31] text-[#646A73]"
+                : "bg-[#C2F800] text-black hover:bg-[#9fca00]"
+            }`}
           >
             <span className="sm:hidden">✓</span>
 
-            <span className="hidden sm:inline">✓ Mark as Done</span>
+            <span className="hidden sm:inline">
+              {isDone ? "✓ Done" : "✓ Mark as Done"}
+            </span>
           </button>
         )}
 
