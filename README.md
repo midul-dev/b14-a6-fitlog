@@ -344,7 +344,7 @@ After deployment, test:
 
 ## 👨‍💻 Author
 
-Midul Mahmud
+Midul Mahmud <br>
 Developed as a frontend project using **Next.js, React, TypeScript, Tailwind CSS, and DaisyUI**.
 
 ---
