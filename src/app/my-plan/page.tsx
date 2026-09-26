@@ -15,9 +15,31 @@ const MyPlanPage = () => {
   const [activeTab, setActiveTab] = useState<"todaysPlan" | "savedPlan">(
     "todaysPlan",
   );
+  const [sortBy, setSortBy] = useState<
+    "duration" | "duration" | "calories" | "rating"
+  >("duration");
 
   // কোন tab-এর data দেখাবো
   const currentWorkouts = activeTab === "todaysPlan" ? todaysPlan : savedPlan;
+
+  // ================= SORT WORKOUTS =================
+
+  const sortedWorkouts = [...currentWorkouts].sort((a, b) => {
+    switch (sortBy) {
+      case "duration":
+        return b.duration - a.duration;
+
+      
+      case "calories":
+        return b.caloriesBurned - a.caloriesBurned;
+
+      case "rating":
+        return b.rating - a.rating;
+
+      default:
+        return 0;
+    }
+  });
 
   // Dynamic summary
   const totalExercises = currentWorkouts.length;
@@ -93,7 +115,7 @@ const MyPlanPage = () => {
             {/* Today's Plan */}
             <button
               onClick={() => setActiveTab("todaysPlan")}
-              className={`rounded-[4px] px-3 py-1.5 text-[7px] font-bold transition ${
+              className={`rounded-[4px] px-3 py-1.5 text-[10px] font-bold transition ${
                 activeTab === "todaysPlan"
                   ? "bg-[#252A31] text-white"
                   : "text-[#646A73] hover:text-white"
@@ -105,7 +127,7 @@ const MyPlanPage = () => {
             {/* Saved */}
             <button
               onClick={() => setActiveTab("savedPlan")}
-              className={`rounded-[4px] px-3 py-1.5 text-[7px] font-bold transition ${
+              className={`rounded-[4px] px-3 py-1.5 text-[10px] font-bold transition ${
                 activeTab === "savedPlan"
                   ? "bg-[#252A31] text-white"
                   : "text-[#646A73] hover:text-white"
@@ -117,26 +139,47 @@ const MyPlanPage = () => {
 
           {/* Sort */}
           <div className="flex items-center gap-2">
-            <span className="text-[7px] text-[#646A73]">Sort By</span>
 
-            <select className="rounded-md border border-[#272B31] bg-[#15171C] px-2 py-1.5 text-[7px] text-gray-300 outline-none">
-              <option>Duration ↓</option>
-              <option>Duration ↑</option>
-              <option>Calories ↓</option>
-              <option>Rating ↓</option>
+            <span className="hidden text-[10px] text-[#646A73] sm:block">
+              Sort By
+            </span>
+
+            <select
+              value={sortBy}
+              onChange={(e) =>
+                setSortBy(
+                  e.target.value as
+                    | "duration"
+                    | "calories"
+                    | "rating",
+                )
+              }
+              className="cursor-pointer rounded-md border border-[#272B31] bg-[#15171C] px-2 py-1.5 text-[10px] text-gray-300 outline-none transition hover:border-[#454A52]"
+            >
+              <option value="duration">
+                Duration ↓
+              </option>
+
+              <option value="calories">
+                Calories ↓
+              </option>
+
+              <option value="rating">
+                Rating ↓
+              </option>
             </select>
           </div>
         </section>
 
         {/* ================= WORKOUT LIST ================= */}
         <section className="mt-3 space-y-2">
-          {currentWorkouts.length > 0 ? (
-            currentWorkouts.map((workout) => (
-              <WorkoutRow
-                key={workout.id}
-                workout={workout}
-                activeTab={activeTab}
-              />
+          {sortedWorkouts.length > 0 ? (
+  sortedWorkouts.map((workout) => (
+    <WorkoutRow
+      key={workout.id}
+      workout={workout}
+      activeTab={activeTab}
+    />
             ))
           ) : (
             <div className="rounded-xl border border-[#272B31] bg-[#15171C] py-10 text-center">
