@@ -36,7 +36,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className="border-b border-[#1F2023] bg-[#0B0C0E] shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+    <nav className="border-b border-[#1F2023] bg-[#0B0C0E] shadow-[0_4px_20px_rgba(0,0,0,0.3)] sticky top-0 z-50">
       <div className="container mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* ================= LOGO ================= */}
         <Link href="/" className="flex shrink-0 items-center gap-2 text-white">
@@ -82,7 +82,7 @@ const Navbar = () => {
         </div>
 
         {/* ================= MOBILE MENU ================= */}
-        <div className="dropdown dropdown-end lg:hidden">
+        <div className="dropdown dropdown-end lg:hidden sticky top-0 z-50">
           <button
             tabIndex={0}
             type="button"
