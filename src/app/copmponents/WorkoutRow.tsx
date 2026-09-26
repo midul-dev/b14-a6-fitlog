@@ -30,7 +30,7 @@ const WorkoutRow = ({
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: "light",
+      theme: "dark",
       transition: Bounce,
     });
   };
@@ -44,7 +44,7 @@ const WorkoutRow = ({
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: "dark",
       transition: Bounce,
     });
   };
@@ -58,7 +58,7 @@ const WorkoutRow = ({
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: "dark",
       transition: Bounce,
     });
   };
@@ -74,7 +74,7 @@ const WorkoutRow = ({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+        theme: "dark",
         transition: Bounce,
       });
       return;
@@ -89,7 +89,7 @@ const WorkoutRow = ({
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
+      theme: "dark",
       transition: Bounce,
     });
 
@@ -137,7 +137,7 @@ const WorkoutRow = ({
       {/* Actions */}
       <div className="flex shrink-0 items-center gap-1.5">
         <Link
-          href={`/${workout.id}`}
+          href={`/exercise/${workout.id}`}
           className="hidden rounded-md border border-[#30343A] px-2.5 py-1.5 text-[10px] font-medium text-gray-300 transition hover:border-[#454A52] hover:text-white sm:block"
         >
           View Details
