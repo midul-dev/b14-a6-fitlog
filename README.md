@@ -54,7 +54,6 @@ The application uses the FitLog REST API for workout data and `localStorage` to 
 | **DaisyUI** | UI components |
 | **React Toastify** | Toast notifications |
 | **REST API** | Fetching workout data |
-| **localStorage** | Persisting plan and saved workouts |
 
 ---
 
@@ -122,17 +121,6 @@ The current list can also be sorted by:
 - Duration
 - Calories
 - Rating
-
----
-
-## 💾 Data Persistence
-
-FitLog uses browser `localStorage` to store:
-
-- Today's Plan
-- Saved Workouts
-
-This means your workout plan remains available even after refreshing or reopening the page in the same browser.
 
 ---
 
@@ -356,6 +344,7 @@ After deployment, test:
 
 ## 👨‍💻 Author
 
+Midul Mahmud
 Developed as a frontend project using **Next.js, React, TypeScript, Tailwind CSS, and DaisyUI**.
 
 ---
