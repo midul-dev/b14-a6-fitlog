@@ -16,8 +16,10 @@ const AddToTodaysPlan = ({ workout }: { workout: IData }) => {
     (item) => item.id === workout.id
   );
 
+   const isPlanFull = todaysPlan.length >= 5;
+
   const handleTodaysPlan = () => {
-    if (isAdded) return;
+    if (isAdded || isPlanFull) return;
 
     setTodaysPlan([...todaysPlan, workout]);
     toast.success(`${workout.name} added to Today's Plan.`, {
@@ -47,13 +49,13 @@ transition: Bounce,
         tracking-wide
         transition
         ${
-          isAdded
+          isAdded || isPlanFull
             ? "cursor-not-allowed bg-[#252A31] text-[#646A73]"
             : "bg-[#C2F800] text-black hover:bg-[#8eaa34]"
         }
       `}
     >
-      {isAdded ? "✓ Plan Added" : "✓ Add to today's plan"}
+      {isAdded ? "✓ Plan Added" : isPlanFull ? "Plan Full (5/5)" : "✓ Add to today's plan"}
     </button>
   );
 };
