@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IData } from "@/types/dataType";
-import AddToTodaysPlan from "../copmponents/AddToTodaysPlan";
-import SavedPlanButton from "../copmponents/SavedPlanButton";
+import AddToTodaysPlan from "../../copmponents/AddToTodaysPlan";
+import SavedPlanButton from "../../copmponents/SavedPlanButton";
+import { notFound } from "next/navigation";
 
 const WorkoutDetails = async ({
   params,
@@ -16,27 +17,8 @@ const WorkoutDetails = async ({
   );
 
   if (!response.ok) {
-    return (
-      <div className="flex min-h-[70vh] items-center justify-center bg-[#0B0C0E] px-4">
-        <div className="text-center">
-          <h1 className="text-3xl font-black uppercase text-white">
-            Workout Not Found
-          </h1>
-
-          <p className="mt-2 text-sm text-gray-500">
-            The workout you are looking for does not exist.
-          </p>
-
-          <Link
-            href="/workouts"
-            className="mt-6 inline-block rounded-md bg-[#C2F800] px-5 py-3 text-xs font-bold uppercase text-black transition hover:bg-[#b1e600]"
-          >
-            Back to Library
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  notFound();
+}
 
   const workout:IData = await response.json();
 

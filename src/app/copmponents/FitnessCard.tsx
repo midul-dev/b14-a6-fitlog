@@ -6,7 +6,7 @@ import React from "react";
 const FitnessCard = ({ data } : {data:IData}) => {
   return (
     <Link
-      href={`/${data.id}`}
+      href={`/exercise/${data.id}`}
       className="group block"
     >
     <div id="cards" className=" group
