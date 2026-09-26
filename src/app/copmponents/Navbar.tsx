@@ -118,7 +118,7 @@ const Navbar = () => {
             {/* Plan */}
             <li>
               <Link
-                href="/plan"
+                href="/my-plan"
                 className="flex items-center justify-between rounded-lg px-4 py-2.5 text-xs text-gray-300 hover:bg-[#191A1D] hover:text-white"
               >
                 <span>Plan</span>
@@ -132,7 +132,7 @@ const Navbar = () => {
             {/* Saved */}
             <li>
               <Link
-                href="/saved"
+                href="/my-plan"
                 className="flex items-center justify-between rounded-lg px-4 py-2.5 text-xs text-gray-300 hover:bg-[#191A1D] hover:text-white"
               >
                 <span>Saved</span>
