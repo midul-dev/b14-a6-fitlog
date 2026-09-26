@@ -37,7 +37,7 @@ const Navbar = () => {
   );
   return (
     <nav className="border-b border-[#1F2023] bg-[#0B0C0E] shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="container mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* ================= LOGO ================= */}
         <Link href="/" className="flex shrink-0 items-center gap-2 text-white">
           <Image

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="bg-[#0B0C0E] px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
+    <section className="bg-[#0B0C0E] px-4 py-5 sm:px-6 sm:py-8 lg:px-15">
       <div
         className="
           mx-auto
@@ -18,7 +18,7 @@ const Hero = () => {
           border
           border-[#25272A]
           bg-[#15171C]
-          px-5
+          px-4
           py-8
           
           sm:px-8

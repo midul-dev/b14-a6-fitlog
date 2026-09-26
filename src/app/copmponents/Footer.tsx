@@ -8,6 +8,7 @@ const Footer = () => {
     <footer className="border-t border-[#1D1F23] bg-[#0B0C0E]">
       <div
         className="
+        container
           mx-auto
           flex
           min-h-[62px]
@@ -22,7 +23,7 @@ const Footer = () => {
           sm:flex-row
           sm:px-6
           sm:py-0
-          lg:px-8
+          
         "
       >
         {/* ================= LOGO ================= */}
@@ -32,13 +33,13 @@ const Footer = () => {
         >
           <Image
             src={logo}
-            width={18}
-            height={18}
+            width={25}
+            height={25}
             alt="FitLog"
-            className="h-[18px] w-[18px]"
+            className="h-[25px] w-[25px]"
           />
 
-          <span className="text-[10px] font-bold tracking-wide text-white">
+          <span className="text-[15px] font-bold tracking-wide text-white">
             FITLOG
           </span>
         </Link>

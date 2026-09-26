@@ -8,7 +8,7 @@ const Fitness = async () => {
   const allData = await getFitnessData();
 
   return (
-    <section className="bg-[#0B0C0E] px-4 py-8 sm:px-6 lg:px-8">
+    <section className="bg-[#0B0C0E] px-4 py-8 sm:px-6 lg:px-15">
       <div className="mx-auto max-w-7xl">
 
         {/* Section Header */}
